@@ -45,6 +45,8 @@ awscli s3 cp file.tar.gz s3://do-not-delete-ls-backup/package/date
 
 ## Copyright
 
+License: MIT
+
 ```
 by kun@lodestream.com
 Copyright LodeStream, LLC
