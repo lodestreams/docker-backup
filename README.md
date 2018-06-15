@@ -1,10 +1,16 @@
-LodeStream Docker Containers Backup Tool
+LodeStream Docker Volumes Backup Tool
 ====
+
+Mainly used to work with docker-compose.
 
 ## How to Use
 
+In project directory
+
 ```bash
-# In project directory
+git submodule add <url> path/to/module/docker-backup
+cd path/to/module
+./docker-backup/backup.sh
 ```
 
 ### Working with Git sub-modules
