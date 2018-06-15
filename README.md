@@ -27,6 +27,16 @@ git submodule add repo.git path/
 git submodule update --init --recursive
 ```
 
+## Upload backup files
+
+With s3
+
+```bash
+pip install awscli
+awscli configure
+awscli s3 cp file.tar.gz s3://do-not-delete-ls-backup/package/date
+```
+
 ## Copyright
 
 ```
