@@ -4,15 +4,18 @@
 # by kun@lodestream.com
 # Copyright LodeStream, LLC
 # Usage
-# ./backup/backup.sh
+# ./docker-backup/backup.sh
 
 readonly PROJ=`pwd`
+readonly SCRIPTS_DIR=$PROJ/docker-backup
+readonly DEST=$PROJ/docker-backup/backups
 readonly NOW=`date +"%Y-%m-%d-%H-%M-%S"`
-readonly DEST=$PROJ/backup/backups
 readonly KEEP=${KEEP:=5}
 
+mkdir -p $DEST
+
 function backup {
-  ./backup_volume.sh $1 "$DEST/$NOW/"
+  $SCRIPTS_DIR/backup_volume.sh $1 "$DEST/$NOW/"
 }
 
 
@@ -49,7 +52,7 @@ echo mkdir -p "$DEST/$NOW"
 mkdir -p "$DEST/$NOW"
 
 # Backup
-readonly volumes=`docker-compose ps -q | xargs docker container inspect  \
+readonly volumes=`docker-compose --compatibility ps -q | xargs docker container inspect  \
                  -f '{{ range .Mounts }}{{ .Name }} {{ end }}' \
                  | xargs -n 1 echo`
 readonly volumes_arr=($volumes)
