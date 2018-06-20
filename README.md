@@ -30,7 +30,14 @@ git submodule add repo.git path/
 #### Updating sub-modules
 
 ```bash
+# first time
 git submodule update --init --recursive
+
+# afterwards updates
+git submodule update --recursive --remote
+
+# or
+git pull --recurse-submodules
 ```
 
 ## Upload backup files
